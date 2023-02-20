@@ -1,9 +1,9 @@
 #include "ls_hc_sr04.h"
 #include <stdio.h>
 #include "tim.h"
+     
 
-
-HcSrc04InfoTypeDef HcSrc04Info;
+HcSrc04InfoTypeDef HcSrc04Info; 
 extern TIM_HandleTypeDef htim2;
 
 void Trig_send(void)
