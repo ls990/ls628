@@ -1,5 +1,20 @@
 #include "ls_beep.h"
 
+void LS_Beep_Init(void)
+{
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
+
+  /* GPIO Ports Clock Enable */
+  LS_BEEP_CLK();
+
+  /*Configure GPIO pins : PG6 PG7 */
+  GPIO_InitStruct.Pin = LS_BEEP_PIN;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(LS_BEEP_PORT, &GPIO_InitStruct);
+}
+
 
 void Beep_Power_on(void)
 {
@@ -37,22 +52,6 @@ void Beep_Button(void)
     HAL_Delay(1);
     BEEP_L(); 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 void delay_us(__IO uint32_t delay)
 {
